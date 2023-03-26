@@ -5,7 +5,8 @@ module.exports = {
   mode: "development",
   entry: {
     index: "./src/index.js",
-    print: "./src/print.js",
+    toDoFactory: "./src/modules/toDoFactory.js",
+    UI: "./src/modules/UI.js",
   },
   devtool: "inline-source-map",
   devServer: {
@@ -13,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Output Management",
+      title: "TO-DO",
     }),
   ],
   output: {

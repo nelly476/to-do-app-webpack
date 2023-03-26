@@ -1,9 +1,5 @@
-function component() {
-  const element = document.createElement("div");
+import "./style.css";
+import toDoFactory from "./modules/toDoFactory";
+import { addMainLayout } from "./modules/UI";
 
-  element.innerHTML = "helloooo";
-
-  return element;
-}
-
-document.body.appendChild(component());
+addMainLayout();
