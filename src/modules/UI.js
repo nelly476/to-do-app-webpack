@@ -46,11 +46,30 @@ const UI = (() => {
     const toDoModule = document.createElement("div");
     toDoModule.className = "to-do-module";
     toDoModule.innerHTML = `
-    <input type="text" class="title">
-    <input type="text" class="description">
-    <input type="text" class="dueDate">
-    <input type="text" class="priority">
-    <button type="submit" id="submitBtn">Add</button>
+    <h2>Add a task</h2>
+    <form action="" method="get" class="newTaskForm">
+      <div class="newNoteTitle-area">
+        <label for="title">Title </label>
+        <input type="text" name="title" id="title" required />
+      </div>
+      <div class="newNoteDescription-area">
+        <label for="description">Description </label>
+        <input type="description" name="description" id="description" required />
+      </div>
+      <div>
+      <label for="deadline-date">Deadline</label>
+      <input type="date" id="deadline-date" name="deadline-date">
+      </div>
+      <div>
+      <p>Priority</p>
+      <p>LOW</p>
+      <p>MEDIUM</p>
+      <p>HIGH</p></div>
+      <div class="form-example">
+        <p>Cancel</p>
+        <input type="submit" value="Add" />
+      </div>
+    </form>
     `;
     content.appendChild(toDoModule);
     console.log("k");
