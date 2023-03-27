@@ -1,3 +1,24 @@
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins-ExtraLight";
+  src: url("./assets/fonts/Poppins-ExtraLight.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Fasthand-Regular";
+  src: url("./assets/fonts/Fasthand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   margin: 0;
@@ -5,7 +26,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Poppins-Regular";
 }
 
 * {
@@ -13,6 +34,48 @@ body {
 }
 
 .header {
-  background-color: #609966;
+  background-color: #11324d;
   color: white;
+  height: 9%;
+  display: flex;
+  align-items: center;
+  padding-left: 1em;
+}
+
+.content {
+  height: 91%;
+  display: flex;
+}
+
+.sidebar {
+  background-color: #ecf2ff;
+  width: 23%;
+  height: 100%;
+  padding-left: 1.3em;
+  /* padding-top: 1em; */
+  row-gap: 0.5em;
+}
+
+.sidebar h3 {
+  margin-top: 0.7em;
+  margin-bottom: 0.2em;
+}
+
+.sidebar h4 {
+  font-family: "Poppins-ExtraLight";
+  margin: 0;
+  /* margin-top: 0.3em;
+  margin-bottom: 0.5em; */
+}
+
+.addButton {
+  margin-top: 1.2em;
+  width: 2.2em;
+  height: 2.2em;
+  color: #11324d;
+  cursor: pointer;
+}
+
+.to-do-module {
+  background-color: aqua;
 }
