@@ -46,7 +46,7 @@ const UI = (() => {
     const toDoModule = document.createElement("div");
     toDoModule.className = "to-do-module";
     toDoModule.innerHTML = `
-    <h2>Add a task</h2>
+    <h2>Add a new task</h2>
     <form action="" method="get" class="newTaskForm">
       <div class="newNoteTitle-area">
         <label for="title">Title </label>
@@ -54,25 +54,24 @@ const UI = (() => {
       </div>
       <div class="newNoteDescription-area">
         <label for="description">Description </label>
-        <input type="description" name="description" id="description" required />
+        <textarea id="description" name="description" rows="6" cols="33"></textarea>
       </div>
-      <div>
+      <div class="deadline-area">
       <label for="deadline-date">Deadline</label>
       <input type="date" id="deadline-date" name="deadline-date">
       </div>
-      <div>
-      <p>Priority</p>
-      <p>LOW</p>
-      <p>MEDIUM</p>
-      <p>HIGH</p></div>
-      <div class="form-example">
-        <p>Cancel</p>
-        <input type="submit" value="Add" />
+      <div class="priority-area">
+      <p>Priority:</p>
+      <p class="low-priority">LOW</p>
+      <p class="medium-priority">MEDIUM</p>
+      <p class="high-priority">HIGH</p></div>
+      <div class="form-btn-area">
+        <button class="close-module-button">Cancel</button>
+        <input class="add-module-button" type="submit" value="Add" />
       </div>
     </form>
     `;
     content.appendChild(toDoModule);
-    console.log("k");
   }
   return { addMainLayout };
 })();
