@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   entry: {
     index: "./src/index.js",
-    toDoFactory: "./src/modules/toDoFactory.js",
+    task: "./src/modules/task.js",
     UI: "./src/modules/UI.js",
   },
   devtool: "inline-source-map",

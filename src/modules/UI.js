@@ -1,4 +1,4 @@
-import { addToCollection, toDoFactory } from "./toDoFactory";
+import { task } from "./task";
 
 const UI = (() => {
   function addMainLayout() {
@@ -47,7 +47,7 @@ const UI = (() => {
     toDoModule.className = "to-do-module";
     toDoModule.innerHTML = `
     <h2>Add a new task</h2>
-    <form action="" method="get" class="newTaskForm">
+    <div class="newTaskForm">
       <div class="newNoteTitle-area">
         <label for="title">Title </label>
         <input type="text" name="title" id="title" required />
@@ -69,7 +69,8 @@ const UI = (() => {
         <button class="close-module-button">Cancel</button>
         <input class="add-module-button" type="submit" value="Add" />
       </div>
-    </form>
+    </div>
+    </div>
     `;
     content.appendChild(toDoModule);
     initModuleBtn();
@@ -94,7 +95,7 @@ const UI = (() => {
     const newNoteDescription = document.getElementById("description").value;
     const newNoteDeadline = document.getElementById("deadline-date").value;
 
-    addToCollection(newNoteTitle, newNoteDescription, newNoteDeadline);
+    task.addToCollection(newNoteTitle, newNoteDescription, newNoteDeadline);
   }
 
   return { addMainLayout };
