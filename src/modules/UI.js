@@ -72,7 +72,31 @@ const UI = (() => {
     </form>
     `;
     content.appendChild(toDoModule);
+    initModuleBtn();
   }
+
+  function initModuleBtn() {
+    const addNewToDoBtn = document.querySelector(".add-module-button");
+    const closeModuleBtn = document.querySelector(".close-module-button");
+
+    addNewToDoBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      addNewToDo();
+    });
+
+    closeModuleBtn.addEventListener("click", () => {
+      document.querySelector(".content").children[1].remove();
+    });
+  }
+
+  function addNewToDo() {
+    const newNoteTitle = document.getElementById("title").value;
+    const newNoteDescription = document.getElementById("description").value;
+    const newNoteDeadline = document.getElementById("deadline-date").value;
+
+    addToCollection(newNoteTitle, newNoteDescription, newNoteDeadline);
+  }
+
   return { addMainLayout };
 })();
 

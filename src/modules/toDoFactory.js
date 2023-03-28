@@ -1,9 +1,9 @@
 const toDoCollection = [];
 
-const toDoFactory = (title, description, dueDate, priority) => {
+const toDoFactory = (title, description, dueDate) => {
   const getTitle = () => title;
 
-  return { title, description, dueDate, priority, getTitle };
+  return { title, description, dueDate, getTitle };
 };
 
 function addToCollection(note) {
