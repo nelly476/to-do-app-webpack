@@ -17,9 +17,9 @@ const task = (() => {
     const newToDo = newTask(title, description, dueDate);
     toDoCollection.push(newToDo);
     localStorage.setItem("allTasks", JSON.stringify(toDoCollection));
-    console.log(tasksFromLocalStorage);
+    console.log(toDoCollection);
   }
-  return { addToCollection };
+  return { addToCollection, toDoCollection };
 })();
 
 export { task };
