@@ -19,6 +19,7 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
-    "date-fns": "^2.29.3"
+    "date-fns": "^2.29.3",
+    "nanoid": "^4.0.2"
   }
 }
