@@ -85,7 +85,8 @@ const UI = (() => {
   function createTaskElement(item) {
     const allTasksArea = document.querySelector(".all-tasks");
     const taskElement = document.createElement("div");
-    taskElement.className = "task-element";
+
+    taskElement.className = `task-element ${item.priority}`;
     // taskElement.setAttribute("id", item.id);
     taskElement.innerHTML = `
     <span class="left-side-task-svg">
@@ -133,9 +134,9 @@ const UI = (() => {
         </div>
         <div class="priority-area">
         <p>Priority:</p>
-        <p class="low-priority">LOW</p>
-        <p class="medium-priority">MEDIUM</p>
-        <p class="high-priority">HIGH</p></div>
+        <p class="low-priority-btn">LOW</p>
+        <p class="medium-priority-btn">MEDIUM</p>
+        <p class="high-priority-btn">HIGH</p></div>
         <div class="form-btn-area">
           <button class="close-module-button">Cancel</button>
           <input class="add-module-button" type="submit" value="Add" />
@@ -152,9 +153,41 @@ const UI = (() => {
     const addNewToDoBtn = document.querySelector(".add-module-button");
     const closeModuleBtn = document.querySelector(".close-module-button");
 
+    const lowPriorityBtn = document.querySelector(".low-priority-btn");
+    const mediumPriorityBtn = document.querySelector(".medium-priority-btn");
+    const highPriorityBtn = document.querySelector(".high-priority-btn");
+    let priority = "";
+
+    const priorityButtons = [
+      lowPriorityBtn,
+      mediumPriorityBtn,
+      highPriorityBtn,
+    ];
+    priorityButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        priority = e.target.classList.value;
+        if (e.target.classList.value.includes("low-priority")) {
+          priority = "low-priority";
+          mediumPriorityBtn.classList.remove("clicked");
+          highPriorityBtn.classList.remove("clicked");
+          e.target.classList.add("clicked");
+        } else if (e.target.classList.value.includes("medium-priority")) {
+          lowPriorityBtn.classList.remove("clicked");
+          highPriorityBtn.classList.remove("clicked");
+          e.target.classList.add("clicked");
+          priority = "medium-priority";
+        } else if (e.target.classList.value.includes("high-priority")) {
+          lowPriorityBtn.classList.remove("clicked");
+          mediumPriorityBtn.classList.remove("clicked");
+          e.target.classList.add("clicked");
+          priority = "high-priority";
+        }
+      });
+    });
+
     addNewToDoBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      addNewToDo();
+      addNewToDo(priority);
       closeModule();
     });
 
@@ -167,13 +200,19 @@ const UI = (() => {
     document.querySelector(".to-do-module").classList.add("hidden");
   }
 
-  function addNewToDo() {
+  function addNewToDo(priority) {
     const newNoteTitle = document.getElementById("title").value;
     const newNoteDescription = document.getElementById("description").value;
     const newNoteDeadline = document.getElementById("deadline-date").value;
     const id = nanoid();
 
-    task.addToCollection(newNoteTitle, newNoteDescription, newNoteDeadline, id);
+    task.addToCollection(
+      newNoteTitle,
+      newNoteDescription,
+      newNoteDeadline,
+      id,
+      priority
+    );
     showNewToDo();
     // initTaskElemBtn();
     // createTaskElement(task.addToCollection[-1]);

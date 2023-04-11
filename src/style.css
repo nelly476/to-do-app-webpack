@@ -112,6 +112,18 @@ body {
   transform: translate(0px, 0px) scale(1.04, 1.04);
 }
 
+.task-element.high-priority {
+  border-left: 9px solid red;
+}
+
+.task-element.medium-priority {
+  border-left: 7px solid #fde541;
+}
+
+.task-element.low-priority {
+  border-left: 7px solid green;
+}
+
 .right-side-task-svg,
 .left-side-task-svg {
   display: flex;
@@ -182,9 +194,9 @@ body {
   column-gap: 1em;
 }
 
-.low-priority,
-.medium-priority,
-.high-priority {
+.low-priority-btn,
+.medium-priority-btn,
+.high-priority-btn {
   width: 5em;
   text-align: center;
   padding: 0.3em;
@@ -194,19 +206,41 @@ body {
   cursor: pointer;
 }
 
-.low-priority {
+.low-priority-btn {
   border: 4px solid green;
   color: green;
 }
 
-.medium-priority {
-  border: 4px solid #fde541;
-  color: #fde541;
+.low-priority-btn:hover,
+.low-priority-btn.clicked {
+  border: 4px solid green;
+  background-color: green;
+  color: white;
 }
 
-.high-priority {
+.medium-priority-btn {
+  border: 4px solid #fde541;
+  color: #fbde21ee;
+  font-weight: bolder;
+}
+
+.medium-priority-btn:hover,
+.medium-priority-btn.clicked {
+  border: 4px solid #fde541;
+  background-color: #fde541;
+  color: white;
+}
+
+.high-priority-btn {
   border: 4px solid red;
   color: red;
+}
+
+.high-priority-btn:hover,
+.high-priority-btn.clicked {
+  border: 4px solid red;
+  background-color: red;
+  color: white;
 }
 
 .form-btn-area {
@@ -232,6 +266,11 @@ body {
   font-weight: bold;
   background-color: #11324d;
   color: #ecf2ff;
+}
+
+.add-module-button:hover {
+  background-color: #ecf2ff;
+  color: #11324d;
 }
 
 .hidden {
