@@ -1,5 +1,3 @@
-import { nanoid } from "nanoid";
-
 const task = (() => {
   let tasksFromLocalStorage = JSON.parse(localStorage.getItem("allTasks"));
   let toDoCollection = [];
@@ -23,7 +21,22 @@ const task = (() => {
 
     // console.log(toDoCollection);
   }
-  return { addToCollection, toDoCollection };
+
+  function deleteTask(id) {
+    toDoCollection.forEach((item, index) => {
+      if (item.id === id) {
+        toDoCollection.splice(index, 1);
+        // console.log({ item });
+        // console.log({ index });
+        // console.log({ toDoCollection });
+      }
+    });
+
+    localStorage.setItem("allTasks", JSON.stringify(toDoCollection));
+    // console.log(toDoCollection);
+  }
+
+  return { addToCollection, toDoCollection, deleteTask };
 })();
 
 export { task };
