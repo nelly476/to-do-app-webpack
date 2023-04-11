@@ -8,16 +8,16 @@ const task = (() => {
     toDoCollection = tasksFromLocalStorage;
   }
 
-  const newTask = (title, description, dueDate) => ({
+  const newTask = (title, description, dueDate, id) => ({
     title,
     description,
     dueDate,
-    id: nanoid(),
+    id,
   });
 
-  function addToCollection(title, description, dueDate) {
+  function addToCollection(title, description, dueDate, id) {
     // localStorage.clear();
-    const newToDo = newTask(title, description, dueDate);
+    const newToDo = newTask(title, description, dueDate, id);
     toDoCollection.push(newToDo);
     localStorage.setItem("allTasks", JSON.stringify(toDoCollection));
 
