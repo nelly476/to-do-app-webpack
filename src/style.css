@@ -37,6 +37,10 @@ body {
   display: none;
 }
 
+svg {
+  cursor: pointer;
+}
+
 .header {
   background-color: #11324d;
   color: white;
@@ -77,7 +81,7 @@ body {
   margin-top: 1.2em;
   width: 2.2em;
   height: 2.2em;
-  color: #11324d;
+  /* color: #11324d; */
   cursor: pointer;
 }
 
@@ -98,30 +102,31 @@ body {
   /* width: 50%; */
   display: flex;
   justify-content: space-between;
-  padding: 0.6em 0.6em;
+  padding: 0 0.6em;
+  height: 2.8em;
   margin-bottom: 1.1em;
   border-radius: 10px;
   -webkit-box-shadow: 0px 9px 22px -8px rgba(34, 60, 80, 0.6);
   -moz-box-shadow: 0px 9px 22px -8px rgba(34, 60, 80, 0.6);
   box-shadow: 0px 9px 22px -8px rgba(34, 60, 80, 0.6);
 
-  transition: transform 300ms ease-out 30ms;
+  transition: transform 100ms ease-out 30ms;
 }
 
 .task-element:hover {
-  transform: translate(0px, 0px) scale(1.04, 1.04);
+  transform: translate(0px, 0px) scale(1.02, 1.02);
 }
 
 .task-element.high-priority {
-  border-left: 9px solid red;
+  border-left: 10px solid red;
 }
 
 .task-element.medium-priority {
-  border-left: 7px solid #fde541;
+  border-left: 10px solid #fde541;
 }
 
 .task-element.low-priority {
-  border-left: 7px solid green;
+  border-left: 10px solid green;
 }
 
 .right-side-task-svg,
@@ -140,12 +145,17 @@ body {
 
 .check-box-svg,
 .right-side-task-svg svg {
-  width: 1.1em;
-  height: 1.1em;
+  width: 1.3em;
+  height: 1.3em;
 }
 
 .right-side-task-svg {
   column-gap: 0.4em;
+}
+
+.right-side-task-svg p {
+  font-size: 0.8rem;
+  color: grey;
 }
 
 .to-do-module {
