@@ -78,51 +78,56 @@ const UI = (() => {
 
     document.getElementById(`info-${id}`).addEventListener("click", () => {
       const target = task.toDoCollection.filter((item) => item.id === id);
-      console.log(target);
+      // console.log(target[0]);
+      showDetailsModule(target[0]);
     });
   }
 
-  // function shoeDetailsModule() {
-  //   const allTasks = document.querySelector(".all-tasks");
+  function showDetailsModule(target) {
+    const allTasks = document.querySelector(".all-tasks");
+    // console.log(target);
+    const detailsModule = document.createElement("div");
+    detailsModule.className = "details-module";
+    detailsModule.innerHTML = `
+    <div class="details-module-header">
+    <h2>${target.title}</h2>
+    <button class="close-details-module-btn">x</button>
+    </div>
+      
+      <div class="details-module-row">
+        <h3>Project:</h3>
+        <p></p>
+      </div>
+      <div class="details-module-row">
+        <h3>Priority:</h3>
+        <p>${target.priority}</p>
+      </div>
+      <div class="details-module-row">
+        <h3>Due Date:</h3>
+        <p>${target.dueDate}</p>
+      </div>
+      <div class="details-module-row">
+        <h3>Details:</h3>
+        <p>${target.description}</p>
+      </div>
+      `;
+    allTasks.appendChild(detailsModule);
+    initCloseDetailsModuleBtn();
+  }
 
-  //     const detailsModule = document.createElement("div");
-  //     toDoModule.className = "to-do-module";
-  //     toDoModule.innerHTML = `
-  //     <h2>Add a new task</h2>
-  //     <div class="newTaskForm">
-  //       <div class="newNoteTitle-area">
-  //         <label for="title">Title </label>
-  //         <input type="text" name="title" id="title" required />
-  //       </div>
-  //       <div class="newNoteDescription-area">
-  //         <label for="description">Description </label>
-  //         <textarea id="description" name="description" rows="6" cols="33"></textarea>
-  //       </div>
-  //       <div class="deadline-area">
-  //       <label for="deadline-date">Deadline</label>
-  //       <input type="date" id="deadline-date" name="deadline-date">
-  //       </div>
-  //       <div class="priority-area">
-  //       <p>Priority:</p>
-  //       <p class="low-priority-btn">LOW</p>
-  //       <p class="medium-priority-btn">MEDIUM</p>
-  //       <p class="high-priority-btn">HIGH</p></div>
-  //       <div class="form-btn-area">
-  //         <button class="close-module-button">Cancel</button>
-  //         <input class="add-module-button" type="submit" value="Add" />
-  //       </div>
-  //     </div>
-  //     </div>
-  //     `;
-  //     content.appendChild(toDoModule);
-  //     initModuleBtn();
+  function initCloseDetailsModuleBtn() {
+    const allTasks = document.querySelector(".all-tasks");
+    document
+      .querySelector(".close-details-module-btn")
+      .addEventListener("click", () => {
+        allTasks.children[task.toDoCollection.length].remove();
+      });
+  }
 
-  // }
-
-  // function removeTasksFromTasksArea() {
-  //   const allTasksArea = document.querySelector(".all-tasks");
-  //   allTasksArea.innerHTML = "";
-  // }
+  function removeTasksFromTasksArea() {
+    const allTasksArea = document.querySelector(".all-tasks");
+    allTasksArea.innerHTML = "";
+  }
 
   function createTaskElement(item) {
     const allTasksArea = document.querySelector(".all-tasks");
