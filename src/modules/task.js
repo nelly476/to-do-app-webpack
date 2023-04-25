@@ -37,7 +37,23 @@ const task = (() => {
     // console.log(toDoCollection);
   }
 
-  return { addToCollection, toDoCollection, deleteTask };
+  function editTask(target) {
+    toDoCollection.map((item) => {
+      if (item.id === target.id) {
+        return {
+          ...item,
+          title: target.title,
+          description: target.description,
+          dueDate: target.dueDate,
+          priority: target.priority,
+        };
+      }
+    });
+    localStorage.setItem("allTasks", JSON.stringify(toDoCollection));
+    console.log(toDoCollection);
+  }
+
+  return { addToCollection, toDoCollection, deleteTask, editTask };
 })();
 
 export { task };

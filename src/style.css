@@ -162,7 +162,7 @@ svg {
 /* TO-DO-MODULE */
 
 .to-do-module,
-.details-module {
+.module {
   background-color: white;
   padding: 0;
   width: 40%;
@@ -178,8 +178,8 @@ svg {
 }
 
 .to-do-module h2,
-.details-module-header,
-.details-module-header button {
+.module-header,
+.close-module-btn {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-color: #11324d;
@@ -187,17 +187,17 @@ svg {
 }
 
 .to-do-module h2,
-.details-module-header h2 {
+.module-header h2 {
   margin: 0;
   padding: 0.8em 1em;
   color: white;
 }
 
-.details-module-header h2 {
+.module-header h2 {
   width: 95%;
 }
 
-.details-module-header button {
+.close-module-btn {
   color: white;
   font-weight: 1000;
   font-size: 1.6rem;
@@ -287,7 +287,8 @@ svg {
 }
 
 .close-module-button,
-.add-module-button {
+.add-module-button,
+.save-edits-btn {
   cursor: pointer;
   font-size: 1rem;
   padding: 0.4em 0.3em;
@@ -298,42 +299,48 @@ svg {
   background-color: #ecf2ff;
 }
 
-.add-module-button {
+.add-module-button,
+.save-edits-btn {
   font-weight: bold;
   background-color: #11324d;
   color: #ecf2ff;
 }
 
-.add-module-button:hover {
+.add-module-button:hover,
+.save-edits-btn:hover {
   background-color: #ecf2ff;
   color: #11324d;
 }
 
-/* DETAILS-MODULE */
+/* MODULE */
 
-.details-module {
+.module {
   width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.details-module-header {
+.module-header {
   display: flex;
 }
 
-.details-module-row {
+.module-row {
   display: flex;
   -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
   -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
   box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
 }
 
-.details-module h2 {
+.module-row:last-child {
+  border-bottom: 2px solid #d8d8d8;
+}
+
+.module h2 {
   text-align: center;
 }
 
-.details-module h3 {
+.module h3 {
   min-width: 20%;
   margin: 0;
   border-right: 2px solid #d8d8d8;
@@ -344,7 +351,17 @@ svg {
   padding-left: 0.5em;
 }
 
-.details-module p {
+.module p {
   width: 80%;
   padding: 0 0.8em;
+}
+
+/* EDIT MODULE */
+
+.save-edits-btn {
+  margin: 1.4em auto;
+}
+
+.priority-area.editing-module {
+  margin: 0.2em 0.6em;
 }
