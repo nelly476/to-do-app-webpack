@@ -143,7 +143,6 @@ const UI = (() => {
     initEditingBtn(target);
     initCloseModuleBtn();
     setPriority();
-    // initSaveEditModuleBtn(target);
   }
 
   function initEditingBtn(target) {
@@ -286,9 +285,9 @@ const UI = (() => {
         </div>
         <div class="priority-area">
         <p>Priority:</p>
-        <p class="low-priority-btn">LOW</p>
-        <p class="medium-priority-btn">MEDIUM</p>
-        <p class="high-priority-btn">HIGH</p>
+        <p class="low-priority-btn priority">LOW</p>
+        <p class="medium-priority-btn priority">MEDIUM</p>
+        <p class="high-priority-btn priority">HIGH</p>
         </div>
         <div class="form-btn-area">
           <button class="close-module-button">Cancel</button>
@@ -357,22 +356,27 @@ const UI = (() => {
   }
 
   function addNewToDo(priority) {
-    const newNoteTitle = document.getElementById("title").value;
-    const newNoteDescription = document.getElementById("description").value;
-    const newNoteDeadline = document.getElementById("deadline-date").value;
+    const newNoteTitle = document.getElementById("title");
+    const newNoteDescription = document.getElementById("description");
+    const newNoteDeadline = document.getElementById("deadline-date");
     const id = nanoid();
 
     task.addToCollection(
-      newNoteTitle,
-      newNoteDescription,
-      newNoteDeadline,
+      newNoteTitle.value,
+      newNoteDescription.value,
+      newNoteDeadline.value,
       id,
       priority
     );
     showNewToDo();
-    // initTaskElemBtn();
-    // createTaskElement(task.addToCollection[-1]);
-    // console.log();
+
+    newNoteTitle.value = "";
+    newNoteDescription.value = "";
+    newNoteDeadline.value = "";
+
+    for (let item of document.getElementsByClassName("priority")) {
+      item.classList.remove("clicked");
+    }
   }
 
   return { addMainLayout };
